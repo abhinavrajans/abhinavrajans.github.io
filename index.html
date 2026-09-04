@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhinav Rajan, PhD — Research Portfolio</title>
+<meta name="description" content="Research portfolio of Dr. Abhinav Rajan — Postdoctoral Fellow, University of Pretoria. Solar thermal energy, thermal energy storage, CFD and AI for energy systems. PhD, IIT Madras.">
+<meta property="og:title" content="Abhinav Rajan, PhD — Research Portfolio">
+<meta property="og:description" content="Postdoctoral Fellow, University of Pretoria. Solar thermal energy, thermal energy storage, CFD and AI for energy systems.">
+<meta property="og:type" content="profile">
+<meta property="og:image" content="https://drive.google.com/thumbnail?id=1yi254Xyty8Fcr2mkNYpx6w4YEey71AzS&sz=w400">
+<meta name="twitter:card" content="summary">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1b1b18; --ink-soft:#5c5a52; --muted:#8a8780;
+  --paper:#fdfcfa; --paper-alt:#f5f3ee; --line:#e4e0d6;
+  --accent:#26415c; --accent-soft:#eaeff3; --accent-line:#c7d4de;
+  --gold:#8a6d3b; --gold-soft:#f3ede1;
+  --radius:10px; --shadow:0 1px 3px rgba(27,27,24,.06), 0 1px 2px rgba(27,27,24,.04);
+  --maxw:900px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{font-family:'Inter',Arial,sans-serif;background:var(--paper);color:var(--ink);font-size:15.5px;line-height:1.7;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;overflow:hidden;}
+h1,h2,h3,.serif{font-family:'Lora',Georgia,serif;}
+a{color:var(--accent);}
+img{max-width:100%;}
+
+/* ── APP-SHELL LAYOUT ──
+   Neither position:fixed nor position:sticky survives a Google Sites embed, because both
+   assume THIS document is the thing that scrolls — in a Sites embed the outer page scrolls
+   and the iframe just rides along, carrying the nav out of view with it.
+   So instead the nav is a plain flex sibling of the scrolling area: the page scrolls inside
+   .page, which lives entirely within our own iframe, and the nav is never inside the
+   scrolling box at all. It cannot scroll away because nothing scrolls past it. */
+.page{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;scroll-behavior:smooth;}
+
+/* ── NAV ── */
+.nav{flex:0 0 auto;z-index:50;background:rgba(253,252,250,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:9px 24px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;}
+.nav-right{grid-column:3;justify-self:end;display:flex;align-items:center;gap:16px;}
+.nav-name{grid-column:1;justify-self:start;font-family:'Lora',Georgia,serif;font-weight:600;font-size:16px;color:var(--ink);text-decoration:none;flex-shrink:0;cursor:pointer;}
+.nav-links{grid-column:2;display:flex;gap:22px;flex-wrap:wrap;flex-shrink:0;}
+.nav-links a{position:relative;font-size:13px;color:var(--ink-soft);text-decoration:none;font-weight:500;letter-spacing:.2px;padding-bottom:3px;transition:color .15s;cursor:pointer;}
+.nav-links a:hover{color:var(--accent);}
+.nav-links a::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--accent);border-radius:2px;transform:scaleX(0);transition:transform .2s ease;}
+.nav-links a.active{color:var(--accent);font-weight:600;}
+.nav-links a.active::after{transform:scaleX(1);}
+.nav-cv{font-size:12px;font-weight:600;color:var(--accent);border:1px solid var(--accent-line);border-radius:20px;padding:5px 14px;text-decoration:none;white-space:nowrap;transition:background .15s;flex-shrink:0;}
+.nav-cv:hover{background:var(--accent-soft);}
+
+.nav-search{display:flex;align-items:center;}
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--ink-soft);padding:6px;display:flex;align-items:center;border-radius:50%;transition:background .15s,color .15s;flex-shrink:0;}
+.nav-search-btn:hover{background:var(--accent-soft);color:var(--accent);}
+.nav-search-input{width:0;opacity:0;border:none;border-bottom:1px solid transparent;outline:none;font-family:inherit;font-size:12.5px;background:none;color:var(--ink);transition:width .2s ease,opacity .2s ease,margin .2s ease;padding:2px 0;}
+.nav-search-input.open{width:160px;opacity:1;margin-left:2px;border-bottom-color:var(--accent-line);}
+.nav-search-input::placeholder{color:var(--muted);}
+.search-hint{font-size:10.5px;color:var(--muted);margin-left:6px;white-space:nowrap;}
+mark.search-hit{background:var(--gold-soft);color:var(--ink);border-radius:2px;padding:0 1px;}
+
+/* section anchors must clear the sticky nav, otherwise the heading lands hidden underneath it */
+#about,#experience,#publications,#education,#blog,#contact{scroll-margin-top:58px;}
+
+@media(max-width:700px){
+  .nav-inner{display:flex;flex-wrap:wrap;row-gap:6px;padding:8px 20px;}
+  .nav-links{gap:14px;order:3;flex-basis:100%;}
+  .nav-links a{font-size:12.5px;}
+  .nav-right{justify-content:center;padding:4px 20px 8px;}
+}
+
+/* ── HERO ── */
+.hero{max-width:var(--maxw);margin:0 auto;padding:64px 24px 44px;display:flex;gap:36px;align-items:center;flex-wrap:wrap;}
+.hero-photo{width:132px;height:132px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid var(--line);}
+.hero-photo-fallback{width:132px;height:132px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-size:40px;font-weight:600;flex-shrink:0;}
+.hero-text{flex:1;min-width:260px;}
+.hero-name{font-size:clamp(28px,5vw,38px);font-weight:600;line-height:1.15;margin-bottom:6px;}
+.hero-name .phd{color:var(--accent);}
+.hero-role{font-size:15px;color:var(--ink-soft);margin-bottom:4px;}
+.hero-affil{font-size:13.5px;color:var(--muted);margin-bottom:16px;}
+.hero-links{display:flex;flex-wrap:wrap;gap:8px;}
+.hlink{font-size:12.5px;font-weight:500;color:var(--ink-soft);border:1px solid var(--line);border-radius:20px;padding:5px 13px;text-decoration:none;transition:all .15s;}
+.hlink:hover{border-color:var(--accent-line);color:var(--accent);background:var(--accent-soft);}
+.hlink.primary{background:var(--accent);color:#fff;border-color:var(--accent);}
+.hlink.primary:hover{background:#1c334a;color:#fff;}
+
+/* ── STAT STRIP ── */
+.stats{max-width:var(--maxw);margin:0 auto;padding:0 24px 44px;display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.stat{flex:1;min-width:110px;text-align:center;padding:20px 10px;border-right:1px solid var(--line);}
+.stat:last-child{border-right:none;}
+.stat-num{font-family:'Lora',serif;font-size:24px;font-weight:600;color:var(--accent);}
+.stat-lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:2px;}
+
+/* ── SECTIONS ── */
+.section{max-width:var(--maxw);margin:0 auto;padding:56px 24px;border-bottom:1px solid var(--line);}
+.section:last-of-type{border-bottom:none;}
+.section-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--gold);margin-bottom:10px;}
+.section-heading{font-size:clamp(22px,3.6vw,28px);font-weight:600;margin-bottom:22px;}
+.prose p{font-size:15px;color:#33322e;margin-bottom:14px;line-height:1.85;}
+.prose p:last-child{margin-bottom:0;}
+.prose strong{color:var(--ink);font-weight:600;}
+
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.tag{font-size:12px;font-weight:500;padding:5px 13px;border-radius:20px;border:1px solid var(--accent-line);color:var(--accent);background:var(--accent-soft);}
+
+.expertise-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px;}
+.exp-card{background:var(--paper);padding:20px;}
+.exp-title{font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+.exp-desc{font-size:12.5px;color:var(--ink-soft);line-height:1.6;}
+
+/* ── EXPERIENCE PROJECT CARDS ── */
+.proj-featured{margin-top:8px;margin-bottom:14px;}
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+@media(max-width:640px){.projects-grid{grid-template-columns:1fr;}}
+.proj-card{background:var(--paper-alt);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:9px;height:100%;}
+.proj-card.past{border-left-color:var(--line);}
+.proj-featured .proj-card{background:var(--accent-soft);border-left-width:4px;height:auto;}
+.proj-badge{font-size:10px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--gold);}
+.proj-title{font-size:14.5px;font-weight:700;color:var(--ink);line-height:1.4;}
+.proj-role{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px;}
+.proj-meta{font-size:12.5px;color:var(--accent);font-weight:500;margin-top:2px;}
+.proj-period{font-size:11.5px;color:var(--muted);}
+.proj-pi{font-size:11.5px;color:var(--ink-soft);}
+.proj-desc{font-size:12.5px;color:#4a4842;line-height:1.7;}
+.proj-outcome{font-size:11px;font-weight:600;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:8px;margin-top:2px;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto;padding-top:6px;}
+.proj-tag{font-size:10px;padding:2px 9px;border-radius:6px;background:#fff;border:1px solid var(--line);color:var(--muted);}
+
+.teach-card{background:var(--paper-alt);border:1px solid var(--line);border-radius:6px;padding:18px 20px;margin-bottom:10px;}
+.teach-role{font-size:14px;font-weight:700;color:var(--ink);}
+.teach-org{font-size:12.5px;color:var(--accent);margin:2px 0 5px;}
+.teach-desc{font-size:12.5px;color:var(--ink-soft);line-height:1.6;}
+.ta-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px;}
+.ta-chip{font-size:11px;padding:3px 10px;border-radius:6px;background:#fff;border:1px solid var(--line);color:var(--ink-soft);}
+
+/* ── PUBLICATIONS ── */
+.pub-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+.pub-filters{display:flex;flex-wrap:wrap;gap:6px;}
+.pfilter{font-size:11.5px;font-weight:500;color:var(--ink-soft);background:#fff;border:1px solid var(--line);border-radius:20px;padding:5px 13px;cursor:pointer;font-family:inherit;transition:all .15s;}
+.pfilter:hover{border-color:var(--accent-line);}
+.pfilter.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+.pub-sort{margin-left:auto;font-size:11.5px;border:1px solid var(--line);border-radius:20px;padding:5px 12px;font-family:inherit;background:#fff;cursor:pointer;color:var(--ink-soft);}
+.pub-count{font-size:12px;color:var(--muted);margin-bottom:14px;}
+
+.pub-group-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin:24px 0 10px;}
+.pub-group-label:first-child{margin-top:0;}
+
+.pub-row{border:1px solid var(--line);border-radius:6px;margin-bottom:8px;overflow:hidden;background:#fff;transition:border-color .15s;}
+.pub-row:hover{border-color:var(--accent-line);}
+.pub-top{display:flex;gap:12px;align-items:flex-start;padding:14px 16px 8px;}
+.pub-num{font-family:'Lora',serif;font-size:11px;font-weight:700;color:var(--muted);width:26px;flex-shrink:0;margin-top:2px;}
+.pub-title{font-weight:600;font-size:13.5px;color:var(--ink);line-height:1.5;margin-bottom:3px;}
+.pub-authors{font-size:11.5px;color:var(--muted);line-height:1.5;}
+.pub-authors strong{color:var(--ink-soft);font-weight:600;}
+.pub-year{font-size:11px;font-weight:700;color:var(--accent);flex-shrink:0;margin-top:2px;}
+.pub-bottom{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:7px 16px 11px 54px;border-top:1px solid var(--paper-alt);background:var(--paper-alt);}
+.pub-journal{font-size:12px;color:var(--ink-soft);font-weight:500;}
+.pub-if{font-size:10px;padding:2px 8px;border-radius:5px;background:var(--gold-soft);color:var(--gold);font-weight:700;border:1px solid #e6d9c0;white-space:nowrap;}
+.pub-affil{font-size:10px;color:var(--muted);font-style:italic;}
+.pub-sep{color:var(--line);}
+.pub-link{font-size:11px;font-weight:600;color:var(--accent);text-decoration:none;padding:2px 9px;border-radius:5px;border:1px solid var(--accent-line);background:var(--accent-soft);}
+.pub-link:hover{background:#dde6ed;}
+.action-btn{font-size:10px;color:var(--muted);cursor:pointer;background:none;border:1px solid var(--line);border-radius:5px;padding:2px 9px;font-family:inherit;transition:all .15s;}
+.action-btn:hover{border-color:var(--accent-line);color:var(--accent);}
+.pub-abstract{display:none;padding:11px 16px 13px 54px;font-size:12.5px;color:var(--ink-soft);line-height:1.75;border-top:1px solid var(--line);background:#fff;}
+.pub-abstract.open{display:block;}
+.hidden{display:none!important;}
+.no-results{text-align:center;padding:36px 20px;color:var(--muted);font-size:13px;}
+
+.bibtex-modal{position:fixed;inset:0;background:rgba(27,27,24,.5);z-index:999;display:none;align-items:center;justify-content:center;padding:20px;}
+.bibtex-modal.open{display:flex;}
+.bibtex-box{background:#fff;border-radius:10px;padding:24px;max-width:620px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.22);}
+.bibtex-box h3{font-family:'Lora',serif;font-size:16px;font-weight:600;margin-bottom:12px;}
+.bibtex-box pre{background:var(--paper-alt);border:1px solid var(--line);border-radius:6px;padding:12px;font-size:11px;line-height:1.6;overflow-x:auto;font-family:'SF Mono',Consolas,monospace;white-space:pre;}
+.bibtex-actions{display:flex;gap:8px;margin-top:14px;justify-content:flex-end;}
+.btn-copy-bib{background:var(--accent);color:#fff;border:none;border-radius:6px;padding:8px 16px;font-size:12px;cursor:pointer;font-family:inherit;}
+.btn-close-bib{background:none;border:1px solid var(--line);border-radius:6px;padding:8px 16px;font-size:12px;cursor:pointer;font-family:inherit;}
+
+/* ── EDUCATION ── */
+.edu-card{border:1px solid var(--line);border-radius:6px;padding:18px 20px;margin-bottom:10px;background:#fff;}
+.edu-degree{font-size:14px;font-weight:700;color:var(--ink);}
+.edu-inst{font-size:12.5px;color:var(--accent);margin:2px 0 6px;}
+.edu-chips{display:flex;flex-wrap:wrap;gap:6px;}
+.edu-chip{font-size:10.5px;padding:2px 9px;border-radius:5px;border:1px solid var(--line);color:var(--ink-soft);}
+.edu-thesis{font-size:11.5px;color:var(--muted);margin-top:7px;font-style:italic;}
+
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:8px;}
+.skill-cat{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+.skill-row{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-soft);padding:5px 0;border-bottom:1px solid var(--paper-alt);}
+.skill-level{font-size:10.5px;color:var(--muted);}
+
+.list-card{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#fff;}
+.list-card-hdr{padding:10px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);background:var(--paper-alt);border-bottom:1px solid var(--line);}
+.list-item{display:flex;justify-content:space-between;gap:10px;padding:9px 14px;border-bottom:1px solid var(--paper-alt);font-size:12.5px;}
+.list-item:last-child{border-bottom:none;}
+.li-sub{font-size:11px;color:var(--muted);white-space:nowrap;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px;}
+@media(max-width:640px){.two-col{grid-template-columns:1fr;}}
+
+.ta-table{width:100%;border-collapse:collapse;font-size:12px;}
+.ta-table th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);padding:8px 12px;border-bottom:1px solid var(--line);}
+.ta-table td{padding:8px 12px;border-bottom:1px solid var(--paper-alt);}
+.ta-code{font-weight:700;color:var(--accent);white-space:nowrap;}
+
+/* ── BLOG ── */
+.write-note{font-size:11px;color:var(--muted);margin-bottom:18px;}
+.blog-card{border:1px solid var(--line);border-radius:6px;padding:18px;margin-bottom:10px;background:#fff;cursor:pointer;transition:border-color .15s;}
+.blog-card:hover{border-color:var(--accent-line);}
+.blog-meta{display:flex;align-items:center;gap:8px;margin-bottom:7px;flex-wrap:wrap;font-size:11px;}
+.blog-cat{font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.3px;}
+.blog-date{color:var(--muted);}
+.blog-title{font-family:'Lora',serif;font-size:16px;font-weight:600;color:var(--ink);margin-bottom:6px;}
+.blog-excerpt{font-size:12.5px;color:var(--ink-soft);line-height:1.65;margin-bottom:10px;}
+.blog-footer{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);}
+.blog-tag{background:var(--paper-alt);border:1px solid var(--line);border-radius:5px;padding:2px 8px;margin-right:4px;}
+.blog-full{display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-soft);line-height:1.75;}
+.blog-full.open{display:block;}
+.empty-state{text-align:center;padding:36px;color:var(--muted);font-size:13px;}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-bottom:24px;}
+.contact-card{border:1px solid var(--line);border-radius:6px;padding:16px 18px;text-decoration:none;color:inherit;display:block;transition:border-color .15s;}
+.contact-card:hover{border-color:var(--accent-line);}
+.cc-label{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:3px;}
+.cc-value{font-size:13px;font-weight:600;color:var(--ink);}
+.cc-sub{font-size:11px;color:var(--muted);margin-top:1px;}
+.map-frame{width:100%;height:240px;border:1px solid var(--line);border-radius:6px;display:block;margin-bottom:24px;}
+.profile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;}
+.profile-card{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:6px;text-decoration:none;color:inherit;font-size:12px;transition:border-color .15s;}
+.profile-card:hover{border-color:var(--accent-line);}
+.pl-name{font-weight:600;color:var(--ink);}
+.pl-handle{color:var(--muted);font-size:10.5px;}
+
+/* ── FOOTER ── */
+.footer{background:var(--paper-alt);border-top:1px solid var(--line);text-align:center;padding:20px 24px;font-size:11px;color:var(--muted);}
+.footer a{color:var(--accent);text-decoration:none;}
+
+@media(max-width:600px){
+  .hero{padding:44px 20px 32px;}
+  .section{padding:40px 20px;}
+  .stats{flex-wrap:wrap;}
+  .stat{min-width:33%;border-bottom:1px solid var(--line);}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a data-target="top" class="nav-name" tabindex="0" role="link">Abhinav Rajan</a>
+    <div class="nav-links">
+      <a data-target="about" tabindex="0" role="link">About</a>
+      <a data-target="experience" tabindex="0" role="link">Experience</a>
+      <a data-target="publications" tabindex="0" role="link">Publications</a>
+      <a data-target="education" tabindex="0" role="link">Education</a>
+      <a data-target="blog" tabindex="0" role="link">Blog</a>
+      <a data-target="contact" tabindex="0" role="link">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-search">
+        <button class="nav-search-btn" onclick="toggleNavSearch()" aria-label="Search publications" type="button">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <input type="text" id="pubSearch" class="nav-search-input" placeholder="Search site…" oninput="handleSiteSearch()" aria-label="Search entire site">
+        <span id="searchHint" class="search-hint hidden"></span>
+      </div>
+      <a href="CV_DrRajan_2026.pdf" class="nav-cv" target="_blank" rel="noopener noreferrer">Download CV</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page" id="pageScroll">
+
+<div id="top"></div>
+
+<!-- HERO -->
+<header class="hero" id="about">
+  <img src="https://drive.google.com/thumbnail?id=1yi254Xyty8Fcr2mkNYpx6w4YEey71AzS&sz=w260"
+       alt="Abhinav Rajan" class="hero-photo"
+       onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+  <div class="hero-photo-fallback" style="display:none;">AR</div>
+  <div class="hero-text">
+    <div class="hero-name">Abhinav Rajan, <span class="phd">PhD</span></div>
+    <div class="hero-role">Postdoctoral Fellow — Solar Thermal Energy · Thermal Storage · CFD · AI for Energy Systems</div>
+    <div class="hero-affil">University of Pretoria, South Africa</div>
+    <div class="hero-links">
+      <a href="mailto:rajan.abhinav9@gmail.com" class="hlink primary">Email</a>
+      <a href="https://scholar.google.com/citations?hl=en&user=VtrNxWYAAAAJ" class="hlink" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+      <a href="https://orcid.org/0000-0003-3404-2228" class="hlink" target="_blank" rel="noopener noreferrer">ORCID</a>
+      <a href="https://www.researchgate.net/profile/Abhinav-Rajan-2" class="hlink" target="_blank" rel="noopener noreferrer">ResearchGate</a>
+      <a href="http://www.linkedin.com/in/abhinavrajans/" class="hlink" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://www.youtube.com/@theresearchlab" class="hlink" target="_blank" rel="noopener noreferrer">The Research Lab ↗</a>
+    </div>
+  </div>
+</header>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">151</div><div class="stat-lbl">Citations</div></div>
+  <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">h-index</div></div>
+  <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">i10-index</div></div>
+  <div class="stat"><div class="stat-num">9</div><div class="stat-lbl">Journals</div></div>
+  <div class="stat"><div class="stat-num">8</div><div class="stat-lbl">Conferences</div></div>
+  <div class="stat"><div class="stat-num">7+</div><div class="stat-lbl">Yrs Research</div></div>
+</div>
+
+<!-- ABOUT -->
+<section class="section">
+  <div class="section-eyebrow">About</div>
+  <h2 class="section-heading">Researcher in Solar Thermal Energy &amp; AI-Driven Energy Systems</h2>
+  <div class="prose">
+    <p>I am a Postdoctoral Fellow in the Department of Mechanical and Aeronautical Engineering at the University of Pretoria, South Africa, working on a CFD framework and the implementation of AI — particularly deep learning — for advanced energy systems.</p>
+    <p>I hold a <strong>PhD in Mechanical Engineering from IIT Madras</strong>, specialising in renewable energy systems, particularly solar thermal technologies and thermal energy storage, supervised by Prof K. S. Reddy. My doctoral research focused on the "Investigations of Parabolic Dish Collector with Thermal Energy Storage for Process Heating Applications," including the first published application of deep learning to predict the performance of concentrating solar collectors.</p>
+    <p>Following my PhD, I worked at IIT Patna on an IRDE/DRDO-sponsored project developing thermally controlled modules of optronic payload for stratospheric applications. With over seven years of research experience, I bring deep expertise in designing and optimising advanced energy systems for sustainable applications.</p>
+  </div>
+  <div class="tags">
+    <span class="tag">Solar Parabolic Dish Systems</span>
+    <span class="tag">Concentrated Solar Power</span>
+    <span class="tag">Thermal Energy Storage</span>
+    <span class="tag">Thermal Management</span>
+    <span class="tag">AI &amp; Deep Learning</span>
+    <span class="tag">CFD &amp; Multiphysics</span>
+    <span class="tag">Phase Change Materials</span>
+    <span class="tag">Process Heat Applications</span>
+  </div>
+  <div class="expertise-grid">
+    <div class="exp-card"><div class="exp-title">Solar Thermal Energy Systems</div><div class="exp-desc">Design and modelling of solar concentrators, CPVT systems, parabolic dish-receiver systems, and thermal energy storage for process heating.</div></div>
+    <div class="exp-card"><div class="exp-title">Advanced Simulation &amp; Modelling</div><div class="exp-desc">ANSYS Fluent, COMSOL Multiphysics, SolidWorks, SolTrace, ASAP, MATLAB, and Python for machine learning.</div></div>
+    <div class="exp-card"><div class="exp-title">Experimental Research</div><div class="exp-desc">Lab-scale experimental setups, data acquisition, CFD model validation, and analysis under real-world conditions.</div></div>
+    <div class="exp-card"><div class="exp-title">AI for Energy Systems</div><div class="exp-desc">Deep learning and neural networks to predict and optimise the performance of solar and thermal energy systems.</div></div>
+    <div class="exp-card"><div class="exp-title">Collaborative Research</div><div class="exp-desc">SUNSHINE Ladakh (IIT Madras – IIT Delhi, DST funded), energy storage with the University of Sydney, DRDO/IRDE aerospace thermal work.</div></div>
+    <div class="exp-card"><div class="exp-title">Research Mentoring</div><div class="exp-desc">Co-supervision of a master's student, TA for four graduate courses, mentoring for Credence CleanTech Solutions, and The Research Lab YouTube channel (60K+ views).</div></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="section-eyebrow">Experience</div>
+  <h2 class="section-heading">Research Projects</h2>
+  <div class="proj-featured">
+    <div class="proj-card">
+      <span class="proj-badge">Current · Sep 2025 – Present</span>
+      <div class="proj-title">Solar Dish CFD &amp; Deep Learning Framework</div>
+      <div class="proj-role">Postdoctoral Fellow</div>
+      <div class="proj-meta">University of Pretoria · Hatfield, South Africa</div>
+      <div class="proj-pi">PI: Prof Willem G. le Roux · Dept. of Mechanical &amp; Aeronautical Engineering</div>
+      <div class="proj-desc">Competitively awarded 2025 Postdoctoral Grant project, "Advanced Simulation and Deep Learning for Energy Systems." Building an integrated structural-optical-thermal framework and training deep learning models to predict multifaceted dish system performance for high-temperature applications — including a community-based aluminium-melting process for Maisa Village, South Africa. Collaborating with the University of Hertfordshire (UK) on a thermal storage system through the International Science Partnerships Fund (ISPF).</div>
+      <div class="proj-outcome">Presented at SASEC 2026 · Accepted poster, SolarPACES 2026</div>
+      <div class="proj-tags"><span class="proj-tag">SolTrace</span><span class="proj-tag">Python</span><span class="proj-tag">SpaceClaim</span><span class="proj-tag">ANSYS Fluent</span><span class="proj-tag">MATLAB</span><span class="proj-tag">Deep Learning</span></div>
+    </div>
+  </div>
+
+  <div class="projects-grid">
+
+    <div class="proj-card past">
+      <span class="proj-badge">Aug 2024 – Aug 2025</span>
+      <div class="proj-title">Thermal Control for Stratospheric Optronic Payloads</div>
+      <div class="proj-role">Research Associate-I</div>
+      <div class="proj-meta">IIT Patna · Bihar, India</div>
+      <div class="proj-pi">PI: Dr Rishi Raj &amp; Dr Ashwani Assam · Dept. of Mechanical Engineering</div>
+      <div class="proj-desc">Sponsored by the Instruments Research and Development Establishment (IRDE), DRDO, Government of India, to develop thermally controlled modules for optronic payloads under stratospheric operation. Ran thermal-fluid simulations in extreme environments (ANSYS Fluent, Simcenter FLOEFD), developed thermal heating strategies to hold payload temperatures within safe limits, and led lab-scale experimental validation, coordinating system integration with IRDE Dehradun.</div>
+      <div class="proj-outcome">Poster, EOP-2025 (IRDE, Dehradun)</div>
+      <div class="proj-tags"><span class="proj-tag">SolidWorks</span><span class="proj-tag">SpaceClaim</span><span class="proj-tag">ANSYS Fluent</span><span class="proj-tag">Simcenter FLOEFD</span></div>
+    </div>
+
+    <div class="proj-card past">
+      <span class="proj-badge">Jan 2019 – Jul 2024</span>
+      <div class="proj-title">Parabolic Dish Collector with Thermal Energy Storage</div>
+      <div class="proj-role">Doctoral Researcher (PhD)</div>
+      <div class="proj-meta">IIT Madras · Chennai, India</div>
+      <div class="proj-pi">Supervisor: Prof K. S. Reddy · Dept. of Mechanical Engineering</div>
+      <div class="proj-desc">Developed and validated an integrated optical-thermal model for solar parabolic dish collectors at the Heat Transfer and Thermal Power Laboratory, including the first published application of deep learning (ANN, TensorFlow/Keras) to predict the performance of concentrating solar collectors. Investigated PCM-based thermal storage at scale on the HPCE cluster. Designed cavity receivers and storage for the DST-funded SUNSHINE Ladakh project — a 40 m² solar dish for drying, cooking and space-heating at a residential school in Ladakh.</div>
+      <div class="proj-outcome">7 journal articles &amp; 6 conferences during the PhD</div>
+      <div class="proj-tags"><span class="proj-tag">SolTrace</span><span class="proj-tag">ASAP</span><span class="proj-tag">SolidWorks</span><span class="proj-tag">ANSYS Fluent</span><span class="proj-tag">COMSOL</span><span class="proj-tag">MATLAB</span><span class="proj-tag">Python</span><span class="proj-tag">HPCE</span></div>
+    </div>
+
+    <div class="proj-card past">
+      <span class="proj-badge">Jun – Aug 2023</span>
+      <div class="proj-title">PCM-Based Thermal Energy Storage</div>
+      <div class="proj-role">Visiting Researcher</div>
+      <div class="proj-meta">University of Sydney · NSW, Australia</div>
+      <div class="proj-pi">Host: Dr Yixiang Gan · School of Civil Engineering</div>
+      <div class="proj-desc">Developed a numerical model for PCM-based thermal energy storage for low-temperature process heating, investigating charging dynamics and effective energy storage capacity. Funded by the IIE Award (Office of Global Engagement, IIT Madras) and an Alumni Travel Grant.</div>
+      <div class="proj-outcome">Journal of Energy Storage, IF ~9.4</div>
+      <div class="proj-tags"><span class="proj-tag">SolidWorks</span><span class="proj-tag">ANSYS Fluent</span><span class="proj-tag">PCM Modelling</span></div>
+    </div>
+
+    <div class="proj-card past">
+      <span class="proj-badge">Jul 2013 – Jun 2015</span>
+      <div class="proj-title">Cold Storage Performance Analysis</div>
+      <div class="proj-role">Postgraduate Researcher (M.Tech)</div>
+      <div class="proj-meta">MANIT Bhopal · India</div>
+      <div class="proj-pi">Supervisor: Prof K. R. Aharwal · Dept. of Mechanical Engineering</div>
+      <div class="proj-desc">Experimentally investigated a 3 kW cold storage system using a Vapour Compression Refrigeration System, analysing the effect of stacking arrangement (10 cm, 20 cm, 30 cm gaps) on cold storage performance.</div>
+      <div class="proj-tags"><span class="proj-tag">Experimental</span><span class="proj-tag">Refrigeration Systems</span><span class="proj-tag">Thermal Analysis</span></div>
+    </div>
+
+  </div>
+
+  <h3 style="font-family:'Lora',serif;font-size:17px;font-weight:600;margin:34px 0 14px;">Teaching Experience</h3>
+  <div class="teach-card">
+    <div class="teach-role">Assistant Professor</div>
+    <div class="teach-org">Netaji Subhas Institute of Technology, Patna, India · Sep 2015 – Sep 2018</div>
+    <div class="teach-desc">Taught undergraduate courses in Thermodynamics, Heat Transfer, and Refrigeration &amp; Air Conditioning over a three-year appointment. Supervised student projects and provided academic mentoring.</div>
+  </div>
+  <div class="teach-card">
+    <div class="teach-role">Teaching Assistant</div>
+    <div class="teach-org">IIT Madras, under Prof K. S. Reddy · 2021 – 2023</div>
+    <div class="teach-desc">Four graduate-level courses, held concurrently with doctoral research. Also served as Laboratory Demonstrator to undergraduate students and visitors (2022–2024).</div>
+    <div class="ta-list">
+      <span class="ta-chip">ME 6148 · Renewable Energy Technology</span>
+      <span class="ta-chip">ME 5129 · Principles of Thermal Energy Conversion</span>
+      <span class="ta-chip">ME 6127 · Energy and Environment</span>
+      <span class="ta-chip">ME 6005 · Solar Energy for Process Heat &amp; Power Generation</span>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="section" id="publications">
+  <div class="section-eyebrow">Publications</div>
+  <h2 class="section-heading">9 Journals · 8 Conference Papers · 2 Posters</h2>
+
+  <div class="pub-toolbar">
+    <div class="pub-filters">
+      <button class="pfilter active" data-filter="type" data-value="all" onclick="setPFilter('type','all',this)">All</button>
+      <button class="pfilter" data-filter="type" data-value="journal" onclick="setPFilter('type','journal',this)">Journals</button>
+      <button class="pfilter" data-filter="type" data-value="conference" onclick="setPFilter('type','conference',this)">Conferences</button>
+      <button class="pfilter" data-filter="type" data-value="poster" onclick="setPFilter('type','poster',this)">Posters</button>
+    </div>
+    <select class="pub-sort" id="pubSortSel" onchange="applyPubSort()">
+      <option value="newest">Newest first</option>
+      <option value="oldest">Oldest first</option>
+    </select>
+  </div>
+  <div class="pub-count"><span id="pubResCount">19</span> of 19 publications — <a href="https://scholar.google.com/citations?hl=en&user=VtrNxWYAAAAJ" target="_blank" rel="noopener noreferrer">view on Google Scholar ↗</a></div>
+  <div class="write-note" style="margin-bottom:14px;">Abstracts are short AI-generated summaries based on each paper's title and venue, not the publisher's exact text, except where marked verbatim — the DOI link on each entry goes to the authoritative published version.</div>
+
+  <div id="pubList">
+
+    <div class="pub-group-label" data-section="journal">Journal Articles</div>
+
+    <div class="pub-row" data-type="journal" data-year="2025">
+      <div class="pub-top">
+        <div class="pub-num">J1</div>
+        <div style="flex:1;">
+          <div class="pub-title">Integrated optical-thermal model to predict the performance of a solar parabolic dish collector for process heating applications</div>
+          <div class="pub-authors"><strong>Rajan, A.</strong> &amp; Reddy, K. S.</div>
+        </div>
+        <div class="pub-year">2025</div>
+      </div>
+      <div class="pub-bottom">
+        <span class="pub-journal">Energy, 321, 135176</span><span class="pub-sep">·</span>
+        <span class="pub-if" title="2024 JIF — most recent at time of publication">IF 9.4</span><span class="pub-sep">·</span>
+        <span class="pub-affil">UP / IIT Madras</span><span class="pub-sep">·</span>
+        <a href="https://doi.org/10.1016/j.energy.2025.135176" class="pub-link" target="_blank" rel="noopener noreferrer">DOI</a>
+        <button class="action-btn" onclick="toggleAbs(this,'abs-j1')">Abstract</button>
+        <button class="action-btn" onclick="openBib('J1')">BibTeX</button>
+      </div>
+      <div class="pub-abstract" id="abs-j1">An integrated optical-thermal model was developed and validated to predict the performance of a solar parabolic dish collector. The model accounts for optical losses, receiver geometry, and thermal behaviour under varying solar irradiance and tilt conditions for process heating applications.</div>
+    </div>
+
+    <div class="pub-row" data-type="journal" data-year="2025">
+      <div class="pub-top">
+        <div class="pub-num">J2</div>
+        <div style="flex:1;">
+          <div class="pub-title">Comparative thermal assessment of Al₂O₃/EG and ZnO/EG as heat transfer fluids in solar parabolic dish receiver</div>
+          <div class="pub-authors">Kumar, K. H., <strong>Rajan, A.</strong>, Karmakar, M., Mondal, B., Mallisetty, P. K. &amp; Reddy, K. S.</div>
+        </div>
+        <div class="pub-year">2025</div>
+      </div>
+      <div class="pub-bottom">
+        <span class="pub-journal">Renewable Energy, 249, 123216</span><span class="pub-sep">·</span>
+        <span class="pub-if" title="2024 JIF">IF 9.1</span><span class="pub-sep">·</span>
+        <span class="pub-affil">UP / IIT Madras</span><span class="pub-sep">·</span>
+        <a href="https://doi.org/10.1016/j.renene.2025.123216" class="pub-link" target="_blank" rel="noopener noreferrer">DOI</a>
+        <button class="action-btn" onclick="toggleAbs(this,'abs-j2')">Abstract</button>
+        <button class="action-btn" onclick="openBib('J2')">BibTeX</button>
+      </div>
+      <div class="pub-abstract" id="abs-j2">Presents a comparative thermal performance assessment of Al₂O₃/ethylene-glycol and ZnO/ethylene-glycol nanofluids as heat transfer fluids in the receiver of a solar parabolic dish collector, identifying the more effective working fluid for medium-temperature process heat applications.</div>
+    </div>
+
+    <div class="pub-row" data-type="journal" data-year="2025">
+      <div class="pub-top">
+        <div class="pub-num">J3</div>
+        <div style="flex:1;">
+          <div class="pub-title">An experimental approach to heat transfer enhancement in heat exchanger tubes using hyperbolic-cut twisted tape inserts: IoT and biomedical insight</div>
+          <div class="pub-authors">Abhijit Rajan, Prasad, B. N., Kumar, R., Dhuria, G. K., Kumar, A. &amp; <strong>Rajan, A.</strong></div>
+        </div>
+        <div class="pub-year">2025</div>
+      </div>
+      <div class="pub-bottom">
+        <span class="pub-journal">Multiscale &amp; Multidisciplinary Modelling, Experiments and Design, 8(9), 384</span><span class="pub-sep">·</span>
+        <span class="pub-affil" title="Public aggregators disagree sharply for this journal (2.0 vs 3.53 vs 2.8 depending on source) — no figure shown rather than publish an unverified number. An institutional Clarivate JCR lookup would resolve this.">IF pending verification</span><span class="pub-sep">·</span>
+        <span class="pub-affil">IIT Patna</span><span class="pub-sep">·</span>
+        <a href="https://doi.org/10.1007/s41939-025-00951-8" class="pub-link" target="_blank" rel="noopener noreferrer">DOI</a>
+        <button class="action-btn" onclick="toggleAbs(this,'abs-j3')">Abstract</button>
+        <button class="action-btn" onclick="openBib('J3')">BibTeX</button>
+      </div>
+      <div class="pub-abstract" id="abs-j3">Experimentally investigates heat transfer enhancement in a tube heat exchanger fitted with hyperbolic-cut twisted tape inserts, quantifying improvement in heat transfer coefficient and friction factor, with discussion of IoT-based monitoring and biomedical heat-exchange relevance.</div>
+    </div>
+
+    <div class="pub-row" data-type="journal" data-year="2024">
+      <div class="pub-top">
+        <div class="pub-num">J4</div>
+        <div style="flex:1;">
+          <div class="pub-title">Performance assessment of phase change material-based thermal energy storage</div>
+          <div class="pub-authors"><strong>Rajan, A.</strong>, Gan, Y. &amp; Reddy, K. S.</div>
+        </div>
+        <div class="pub-year">2024</div>
+      </div>
+      <div class="pub-bottom">
+        <span class="pub-journal">Journal of Energy Storage, 87, 111424</span><span class="pub-sep">·</span>
+        <span class="pub-if" title="2023 JIF — estimated">IF ~9.4</span><span class="pub-sep">·</span>
+        <span class="pub-affil">Univ. of Sydney / IIT Madras</span><span class="pub-sep">·</span>
+        <a href="https://doi.org/10.1016/j.est.2024.111424" class="pub-link" target="_blank" rel="noopener noreferrer">DOI</a>
+        <button class="action-btn" onclick="toggleAbs(this,'abs-j4')">Abstract</button>
+        <button class="action-btn" onclick="openBib('J4')">BibTeX</button>
+      </div>
+      <div class="pub-abstract" id="abs-j4">Develops and validates a numerical model of a PCM-based thermal energy storage unit for low-temperature process heating, quantifying melt fraction evolution, temperature distribution and effective energy storage capacity during charging.</div>
+    </div>
+
+    <div class="pub-row" data-type="journal" data-year="2024">
+      <div class="pub-top">
+        <div class="pub-num">J5</div>
+        <div style="flex:1;">
+          <div class="pub-title">Integrated optical-thermal model and deep learning technique to estimate the performance of a conical cavity receiver coupled solar parabolic dish collector</div>
+          <div class="pub-authors"><strong>Rajan, A.</strong> &amp; Reddy, K. S.</div>
+        </div>
+        <div class="pub-year">2024</div>
+      </div>
+      <div class="pub-bottom">
+        <span class="pub-journal">Energy Conversion and Management, 301, 118052</span><span class="pub-sep">·</span>
+        <span class="pub-if" title="2023 JIF — note: CV_DrRajan_2026.pdf lists 10.9 for this journal; unresolved which JCR year each source reflects, pending institutional verification">IF 9.9</span><span class="pub-sep">·</span>
+        <span class="pub-affil">IIT Madras</span><span class="pub-sep">·</span>
+        <a href="https://doi.org/10.1016/j.enconman.2023.118052" class="pub-link" target="_blank" rel="noopener noreferrer">DOI</a>
+        <button class="action-btn" onclick="toggleAbs(this,'abs-j5')">Abstract</button>
+        <button class="action-btn" onclick="openBib('J5')">BibTeX</button>
+      </div>
+      <div class="pub-abstract" id="abs-j5">Couples an integrated optical-thermal model with an artificial neural network to estimate the performance of a solar parabolic dish collector fitted with a conical cavity receiver, offering a fast alternative to full numerical simulation.</div>
+    </div>
+
+    <div class="pub-row" data-type="journal" data-year="2024">
+      <div class="pub-top">
+        <div class="pub-num">J6</div>
+        <div style="flex:1;">
+          <div class="pub-title">Optical and thermal investigation of hyperbolic cavity receiver with secondary reflector for solar parabolic dish collector</div>
+          <div class="pub-authors">Mandal, P., <strong>Rajan, A.</strong> &amp; Reddy, K. S.</div>
+        </div>
+        <div class="pub-year">2024</div>
+      </div>
+      <div class="pub-bottom">
+        <span class="pub-journal">Thermal Science and Engineering Progress, 47, 102350</span><span class="pub-sep">·</span>
+        <span class="pub-if" title="2023 JIF — interpolated">IF ~5.4</span><span class="pub-sep">·</span>
+        <span class="pub-affil">IIT Madras</span><span class="pub-sep">·</span>
+        <a href="https://doi.org/10.1016/j.tsep.2023.102350" class="pub-link" target="_blank" rel="noopener noreferrer">DOI</a>
+        <button class="action-btn" onclick="toggleAbs(this,'abs-j6')">Abstract</button>
+        <button class="action-btn" onclick="openBib('J6')">BibTeX</button>
+      </div>
+      <div class="pub-abstract" id="abs-j6">Examines the optical and thermal performance of a hyperbolic cavity receiver fitted with a secondary reflector, quantifying flux concentration and thermal efficiency improvements from reduced optical losses.</div>
+    </div>
+
+    <div class="pub-row" data-type="journal" data-year="2023">
+      <div class="pub-top">
+        <div class="pub-num">J7</div>
+        <div style="flex:1;">
+          <div class="pub-title">Integrated optical and thermal model to investigate the performance of a solar parabolic dish collector coupled with a cavity receiver</div>
+          <div class="pub-authors"><strong>Rajan, A.</strong> &amp; Reddy, K. S.</div>
+        </div>
+        <div class="pub-year">2023</div>
+      </div>
+      <div class="pub-bottom">
+        <span class="pub-journal">Renewable Energy, 219, 119376</span><span class="pub-sep">·</span>
+        <span class="pub-if" title="2022 JIF">IF 8.7</span><span class="pub-sep">·</span>
+        <span class="pub-affil">IIT Madras</span><span class="pub-sep">·</span>
+        <a href="https://doi.org/10.1016/j.renene.2023.119376" class="pub-link" target="_blank" rel="noopener noreferrer">DOI</a>
+        <button class="action-btn" onclick="toggleAbs(this,'abs-j7')">Abstract</button>
+        <button class="action-btn" onclick="openBib('J7')">BibTeX</button>
+      </div>
+      <div class="pub-abstract" id="abs-j7">Develops an integrated optical and thermal model combining ray-tracing with coupled thermal simulation to predict receiver temperatures and thermal efficiency, validated against lab-scale experimental data.</div>
+    </div>
+
+    <div class="pub-row" data-type="journal" data-year="2023">
+      <div class="pub-top">
+        <div class="pub-num">J8</div>
+        <div style="flex:1;">
+          <div class="pub-title">Convective heat loss prediction from conical cavity receiver of solar parabolic dish collector using numerical method and artificial neural network</div>
+          <div class="pub-authors"><strong>Rajan, A.</strong> &amp; Reddy, K. S.</div>
+        </div>
+        <div class="pub-year">2023</div>
+      </div>
+      <div class="pub-bottom">
+        <span class="pub-journal">Numerical Heat Transfer, Part A: Applications, 83(6), 626–649</span><span class="pub-sep">·</span>
+        <span class="pub-if" title="2022 JIF — estimated; note: CV_DrRajan_2026.pdf lists 3.5 for this journal; unresolved which JCR year each source reflects, pending institutional verification">IF ~2.7</span><span class="pub-sep">·</span>
+        <span class="pub-affil">IIT Madras</span><span class="pub-sep">·</span>
+        <a href="https://doi.org/10.1080/10407782.2022.2102338" class="pub-link" target="_blank" rel="noopener noreferrer">DOI</a>
+        <button class="action-btn" onclick="toggleAbs(this,'abs-j8')">Abstract</button>
+        <button class="action-btn" onclick="openBib('J8')">BibTeX</button>
+      </div>
+      <div class="pub-abstract" id="abs-j8">Predicts convective heat loss from a conical cavity receiver using both CFD and an artificial neural network, with the ANN model reproducing CFD-predicted trends at substantially lower computational cost.</div>
+    </div>
+
+    <div class="pub-row" data-type="journal" data-year="2022">
+      <div class="pub-top">
+        <div class="pub-num">J9</div>
+        <div style="flex:1;">
+          <div class="pub-title">Optical modeling of corrugation cavity receiver for large-aperture solar parabolic dish collector</div>
+          <div class="pub-authors"><strong>Rajan, A.</strong> &amp; Reddy, K. S.</div>
+        </div>
+        <div class="pub-year">2022</div>
+      </div>
+      <div class="pub-bottom">
+        <span class="pub-journal">Energy Sources, Part A, 44(2), 3330–3348</span><span class="pub-sep">·</span>
+        <span class="pub-if" title="2021 JIF — note: CV_DrRajan_2026.pdf lists 2.2 for this journal; unresolved which JCR year each source reflects, pending institutional verification">IF 2.9</span><span class="pub-sep">·</span>
+        <span class="pub-affil">IIT Madras</span><span class="pub-sep">·</span>
+        <a href="https://doi.org/10.1080/15567036.2022.2063458" class="pub-link" target="_blank" rel="noopener noreferrer">DOI</a>
+        <button class="action-btn" onclick="toggleAbs(this,'abs-j9')">Abstract</button>
+        <button class="action-btn" onclick="openBib('J9')">BibTeX</button>
+      </div>
+      <div class="pub-abstract" id="abs-j9">This article presents an optical investigation of a corrugation cavity receiver for a 100 m² parabolic dish collector (PDC). The performance of PDC depends on the selection of the receiver and its mounting distance from the collector base (H) to receive a high amount of reflected radiation. This work performs optical modeling for PDC with a designed corrugation cavity receiver using commercial software, ASAP® 2013. The motivation for this study is derived from the fact that the entrapped internal reflection within the receiver optimizes the system's optical efficiency. The influential geometrical and optical parameters of the receiver have been optimized by varying the aperture diameter, surface absorptivity, receiver coil pitch, and angle of taper. The performance of the optimized receiver is compared with the conical cavity receiver and found to be excellent among all values of H. <em>(Verbatim published abstract — retrieved from the publisher, September 2026.)</em></div>
+    </div>
+
+    <div class="pub-group-label" data-section="conference">Conference Proceedings</div>
+
+    <div class="pub-row" data-type="conference" data-year="2026">
+      <div class="pub-top">
+        <div class="pub-num">C1</div>
+        <div style="flex:1;">
+          <div class="pub-title">Modelling the effect of tracking error on multifaceted dish system performance for high-temperature applications</div>
+          <div class="pub-authors"><strong>Rajan, A.</strong>, le Roux, W. G., Humphries, E. D., Craig, K. J., Cox, R. B. &amp; van Vuuren, D. J.</div>
+        </div>
+        <div class="pub-year">2026</div>
+      </div>
+      <div class="pub-bottom">
+        <span class="pub-journal">32nd SolarPACES Conference, Bad Neuenahr, Germany</span><span class="pub-sep">·</span>
+        <span class="pub-affil">Univ. of Pretoria</span><span class="pub-sep">·</span>
+        <a href="https://www.solarpaces.org" class="pub-link" target="_blank" rel="noopener noreferrer">SolarPACES</a>
+        <button class="action-btn" onclick="toggleAbs(this,'abs-c1')">Abstract</button>
+        <button class="action-btn" onclick="openBib('C1')">BibTeX</button>
+      </div>
+      <div class="pub-abstract" id="abs-c1">Models the effect of tracking error on a multifaceted solar dish system, quantifying how pointing inaccuracies shift concentrated flux distribution on the receiver and reduce intercept and thermal efficiency.</div>
+    </div>
+
+    <div class="pub-row" data-type="conference" data-year="2026">
+      <div class="pub-top">
+        <div class="pub-num">C2</div>
+        <div style="flex:1;">
+          <div class="pub-title">Analysing the impact of tracking error on an air-heating open-cavity tubular receiver in a solar parabolic dish system</div>
+          <div class="pub-authors"><strong>Rajan, A.</strong>, Cox, R. B., le Roux, W. G., van Vuuren, D. J. &amp; Craig, K. J.</div>
+        </div>
+        <div class="pub-year">2026</div>
+      </div>
+      <div class="pub-bottom">
+        <span class="pub-journal">SASEC 2026, Kruger National Park, SA</span><span class="pub-sep">·</span>
+        <span class="pub-affil">Univ. of Pretoria</span><span class="pub-sep">·</span>
+        <a href="https://sasec.org.za" class="pub-link" target="_blank" rel="noopener noreferrer">SASEC 2026</a>
+        <button class="action-btn" onclick="toggleAbs(this,'abs-c2')">Abstract</button>
+        <button class="action-btn" onclick="openBib('C2')">BibTeX</button>
+      </div>
+      <div class="pub-abstract" id="abs-c2">Analyses the impact of tracking error on an air-heating open-cavity tubular receiver, evaluating how off-pointing affects flux distribution across the tube bank and resulting air outlet temperature and thermal efficiency.</div>
+    </div>
+
+    <div class="pub-row" data-type="conference" data-year="2024">
+      <div class="pub-top">
+        <div class="pub-num">C3</div>
+        <div style="flex:1;">
+          <div class="pub-title">Deep learning model to predict the performance of solar parabolic dish collector with conical cavity receiver</div>
+          <div class="pub-authors"><strong>Rajan, A.</strong> &amp; Reddy, K. S.</div>
+        </div>
+        <div class="pub-year">2024</div>
+      </div>
+      <div class="pub-bottom">
+        <span class="pub-journal">1st ISRET, IIT Delhi, India</span><span class="pub-sep">·</span>
+        <span class="pub-affil">IIT Madras</span><span class="pub-sep">·</span>
+        <a href="https://isret.iitd.ac.in" class="pub-link" target="_blank" rel="noopener noreferrer">ISRET 2024</a>
+        <button class="action-btn" onclick="toggleAbs(this,'abs-c3')">Abstract</button>
+        <button class="action-btn" onclick="openBib('C3')">BibTeX</button>
+      </div>
+      <div class="pub-abstract" id="abs-c3">Presents a deep learning model to predict the performance of a solar parabolic dish collector with a conical cavity receiver, trained on simulation data to estimate thermal efficiency across operating and geometric parameters.</div>
+    </div>
+
+    <div class="pub-row" data-type="conference" data-year="2024">
+      <div class="pub-top">
+        <div class="pub-num">C4</div>
+        <div style="flex:1;">
+          <div class="pub-title">Optical and thermal analysis of solar parabolic dish collector with hetero-conical cavity receiver for medium temperature applications</div>
+          <div class="pub-authors"><strong>Rajan, A.</strong> &amp; Reddy, K. S.</div>
+        </div>
+        <div class="pub-year">2024</div>
+      </div>
+      <div class="pub-bottom">
+        <span class="pub-journal">SET 2024, Shanghai, China</span><span class="pub-sep">·</span>
+        <span class="pub-affil">IIT Madras</span><span class="pub-sep">·</span>
+        <a href="https://www.set2024.org" class="pub-link" target="_blank" rel="noopener noreferrer">SET 2024</a>
+        <button class="action-btn" onclick="toggleAbs(this,'abs-c4')">Abstract</button>
+        <button class="action-btn" onclick="openBib('C4')">BibTeX</button>
+      </div>
+      <div class="pub-abstract" id="abs-c4">Reports an optical and thermal analysis of a solar parabolic dish collector fitted with a hetero-conical cavity receiver for medium-temperature applications, evaluating flux concentration and thermal efficiency.</div>
+    </div>
+
+    <div class="pub-row" data-type="conference" data-year="2023">
+      <div class="pub-top">
+        <div class="pub-num">C5</div>
+        <div style="flex:1;">
+          <div class="pub-title">Thermo-optical modeling for hyperbolic cavity receiver of 40 m² parabolic dish collector</div>
+          <div class="pub-authors">Mondal, P., <strong>Rajan, A.</strong> &amp; Reddy, K. S.</div>
+        </div>
+        <div class="pub-year">2023</div>
+      </div>
+      <div class="pub-bottom">
+        <span class="pub-journal">ISES Solar World Congress 2023, New Delhi, India</span><span class="pub-sep">·</span>
+        <span class="pub-affil">IIT Madras</span><span class="pub-sep">·</span>
+        <a href="https://www.ises.org/solar-world-congress" class="pub-link" target="_blank" rel="noopener noreferrer">ISES SWC</a>
+        <button class="action-btn" onclick="toggleAbs(this,'abs-c5')">Abstract</button>
+        <button class="action-btn" onclick="openBib('C5')">BibTeX</button>
+      </div>
+      <div class="pub-abstract" id="abs-c5">Presents thermo-optical modelling of a hyperbolic cavity receiver for a large 40 m² parabolic dish collector, at the scale relevant to the SUNSHINE Ladakh community solar-thermal deployment.</div>
+    </div>
+
+    <div class="pub-row" data-type="conference" data-year="2023">
+      <div class="pub-top">
+        <div class="pub-num">C6</div>
+        <div style="flex:1;">
+          <div class="pub-title">Coupled optical-thermal modeling of solar parabolic dish collector for novel cavity receiver</div>
+          <div class="pub-authors"><strong>Rajan, A.</strong> &amp; Reddy, K. S.</div>
+        </div>
+        <div class="pub-year">2023</div>
+      </div>
+      <div class="pub-bottom">
+        <span class="pub-journal">IHTC-17, Cape Town, South Africa</span><span class="pub-sep">·</span>
+        <span class="pub-affil">IIT Madras</span><span class="pub-sep">·</span>
+        <a href="https://www.ihtc17.org" class="pub-link" target="_blank" rel="noopener noreferrer">IHTC-17</a>
+        <button class="action-btn" onclick="toggleAbs(this,'abs-c6')">Abstract</button>
+        <button class="action-btn" onclick="openBib('C6')">BibTeX</button>
+      </div>
+      <div class="pub-abstract" id="abs-c6">Develops a coupled optical-thermal model of a solar parabolic dish collector fitted with a novel cavity receiver geometry, evaluating flux concentration and thermal efficiency relative to conventional designs.</div>
+    </div>
+
+    <div class="pub-row" data-type="conference" data-year="2023">
+      <div class="pub-top">
+        <div class="pub-num">C7</div>
+        <div style="flex:1;">
+          <div class="pub-title">Comparative study of cylindrical and triple concentric tube models for PCM-based thermal energy storage</div>
+          <div class="pub-authors"><strong>Rajan, A.</strong> &amp; Reddy, K. S.</div>
+        </div>
+        <div class="pub-year">2023</div>
+      </div>
+      <div class="pub-bottom">
+        <span class="pub-journal">ECRES 2023, Riga, Latvia</span><span class="pub-sep">·</span>
+        <span class="pub-affil">IIT Madras</span><span class="pub-sep">·</span>
+        <a href="https://www.eures-conference.org" class="pub-link" target="_blank" rel="noopener noreferrer">ECRES 2023</a>
+        <button class="action-btn" onclick="toggleAbs(this,'abs-c7')">Abstract</button>
+        <button class="action-btn" onclick="openBib('C7')">BibTeX</button>
+      </div>
+      <div class="pub-abstract" id="abs-c7">Compares cylindrical and triple-concentric-tube geometries for PCM-based thermal energy storage, evaluating melting rate and effective storage capacity to identify the more efficient geometry.</div>
+    </div>
+
+    <div class="pub-row" data-type="conference" data-year="2021">
+      <div class="pub-top">
+        <div class="pub-num">C8</div>
+        <div style="flex:1;">
+          <div class="pub-title">Estimation of convective heat losses from conical cavity receiver of solar parabolic dish collector under wind conditions and receiver orientations</div>
+          <div class="pub-authors"><strong>Rajan, A.</strong> &amp; Reddy, K. S.</div>
+        </div>
+        <div class="pub-year">2021</div>
+      </div>
+      <div class="pub-bottom">
+        <span class="pub-journal">ISEC 2021, Online</span><span class="pub-sep">·</span>
+        <span class="pub-affil">IIT Madras</span><span class="pub-sep">·</span>
+        <a href="https://www.stirlingengine.com" class="pub-link" target="_blank" rel="noopener noreferrer">ISEC 2021</a>
+        <button class="action-btn" onclick="toggleAbs(this,'abs-c8')">Abstract</button>
+        <button class="action-btn" onclick="openBib('C8')">BibTeX</button>
+      </div>
+      <div class="pub-abstract" id="abs-c8">Estimates convective heat losses from a conical cavity receiver under varying wind conditions and receiver orientations using CFD simulation.</div>
+    </div>
+
+    <div class="pub-group-label" data-section="poster">Presentations &amp; Posters</div>
+
+    <div class="pub-row" data-type="poster" data-year="2025">
+      <div class="pub-top">
+        <div class="pub-num">P1</div>
+        <div style="flex:1;">
+          <div class="pub-title">Enabling reliable optronic operations in extreme stratospheric conditions</div>
+          <div class="pub-authors"><strong>Rajan, A.</strong>, Sharma, A. K., Mishra, M. P., Ashwani, A. &amp; Raj, R.</div>
+        </div>
+        <div class="pub-year">2025</div>
+      </div>
+      <div class="pub-bottom">
+        <span class="pub-journal">EOP-2025, IRDE, Dehradun, India</span><span class="pub-sep">·</span>
+        <span class="pub-affil">IIT Patna</span><span class="pub-sep">·</span>
+        <a href="https://www.irde.gov.in" class="pub-link" target="_blank" rel="noopener noreferrer">EOP-2025</a>
+        <button class="action-btn" onclick="toggleAbs(this,'abs-p1')">Abstract</button>
+        <button class="action-btn" onclick="openBib('P1')">BibTeX</button>
+      </div>
+      <div class="pub-abstract" id="abs-p1">Presents a thermal management approach for enabling reliable operation of an optronic payload under extreme stratospheric conditions.</div>
+    </div>
+
+    <div class="pub-row" data-type="poster" data-year="2021">
+      <div class="pub-top">
+        <div class="pub-num">P2</div>
+        <div style="flex:1;">
+          <div class="pub-title">Optical modeling of solar parabolic dish collector coupled with conical cavity receiver</div>
+          <div class="pub-authors"><strong>Rajan, A.</strong> &amp; Reddy, K. S.</div>
+        </div>
+        <div class="pub-year">2021</div>
+      </div>
+      <div class="pub-bottom">
+        <span class="pub-journal">6th ICSEEC, Lucknow, India</span><span class="pub-sep">·</span>
+        <span class="pub-affil">IIT Madras</span><span class="pub-sep">·</span>
+        <a href="https://www.seec2021.org" class="pub-link" target="_blank" rel="noopener noreferrer">SEEC 2021</a>
+        <button class="action-btn" onclick="toggleAbs(this,'abs-p2')">Abstract</button>
+        <button class="action-btn" onclick="openBib('P2')">BibTeX</button>
+      </div>
+      <div class="pub-abstract" id="abs-p2">Presents optical modelling of a solar parabolic dish collector coupled with a conical cavity receiver using ray-tracing simulation.</div>
+    </div>
+
+    <div class="no-results hidden" id="pubNoResults">No publications match the selected filter.</div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+  <div class="section-eyebrow">Education &amp; Skills</div>
+  <h2 class="section-heading">Academic Qualifications</h2>
+
+  <div class="edu-card">
+    <div class="edu-degree">Doctor of Philosophy (PhD) — Mechanical Engineering</div>
+    <div class="edu-inst">Indian Institute of Technology Madras · Chennai, India</div>
+    <div class="edu-chips"><span class="edu-chip">GPA 8.22/10</span><span class="edu-chip">2019 – 2024</span></div>
+    <div class="edu-thesis">Thesis: "Investigations of Solar Parabolic Dish Collector with Thermal Energy Storage for Process Heating Applications" — Supervisor: Prof K. S. Reddy</div>
+  </div>
+  <div class="edu-card">
+    <div class="edu-degree">Master of Technology (M.Tech) — Thermal Engineering</div>
+    <div class="edu-inst">Maulana Azad National Institute of Technology · Bhopal, India</div>
+    <div class="edu-chips"><span class="edu-chip">GPA 8.6/10</span><span class="edu-chip">2013 – 2015</span></div>
+    <div class="edu-thesis">Thesis: "Performance Analysis of Cold Storage for the Different Stacking Arrangements" — Supervisor: Prof K. R. Aharwal</div>
+  </div>
+  <div class="edu-card">
+    <div class="edu-degree">Bachelor of Engineering (B.E.) — Mechanical Engineering</div>
+    <div class="edu-inst">Rajiv Gandhi Proudyogiki Vishwavidyalaya · India</div>
+    <div class="edu-chips"><span class="edu-chip">79.72%</span><span class="edu-chip">2009 – 2013</span></div>
+  </div>
+
+  <h3 style="font-family:'Lora',serif;font-size:17px;font-weight:600;margin:34px 0 6px;">Technical Skills</h3>
+  <div class="skills-grid">
+    <div><div class="skill-cat">Solar / Optical</div>
+      <div class="skill-row">SolTrace <span class="skill-level">Expert</span></div>
+      <div class="skill-row">ASAP <span class="skill-level">Advanced</span></div>
+    </div>
+    <div><div class="skill-cat">CFD &amp; Simulation</div>
+      <div class="skill-row">ANSYS Fluent <span class="skill-level">Expert</span></div>
+      <div class="skill-row">COMSOL <span class="skill-level">Intermediate</span></div>
+      <div class="skill-row">Simcenter FLOEFD <span class="skill-level">Advanced</span></div>
+    </div>
+    <div><div class="skill-cat">Programming</div>
+      <div class="skill-row">Python <span class="skill-level">Advanced</span></div>
+      <div class="skill-row">MATLAB <span class="skill-level">Advanced</span></div>
+      <div class="skill-row">Deep Learning <span class="skill-level">Advanced</span></div>
+    </div>
+    <div><div class="skill-cat">CAD &amp; Modelling</div>
+      <div class="skill-row">SolidWorks <span class="skill-level">Advanced</span></div>
+      <div class="skill-row">SpaceClaim <span class="skill-level">Advanced</span></div>
+      <div class="skill-row">TecPlot <span class="skill-level">Intermediate</span></div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Lora',serif;font-size:17px;font-weight:600;margin:34px 0 14px;">Teaching Assistantship — IIT Madras</h3>
+  <div class="list-card">
+    <div class="list-card-hdr">Under Prof K. S. Reddy · Dept. of Mechanical Engineering</div>
+    <table class="ta-table">
+      <thead><tr><th>Code</th><th>Course</th><th>Semester</th></tr></thead>
+      <tbody>
+        <tr><td class="ta-code">ME 6148</td><td>Renewable Energy Technology</td><td>Jan – May 2023</td></tr>
+        <tr><td class="ta-code">ME 5129</td><td>Principles of Thermal Energy Conversion</td><td>Jul – Nov 2022</td></tr>
+        <tr><td class="ta-code">ME 6127</td><td>Energy and Environment</td><td>Jan – May 2022</td></tr>
+        <tr><td class="ta-code">ME 6005</td><td>Solar Energy for Process Heat &amp; Power Generation</td><td>Jul – Nov 2021</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-family:'Lora',serif;font-size:17px;font-weight:600;margin:34px 0 14px;">Memberships, Service &amp; Outreach</h3>
+  <div class="two-col">
+    <div class="list-card">
+      <div class="list-card-hdr">Professional Memberships &amp; Service</div>
+      <div class="list-item"><span>Life Member, ISHMT</span><span class="li-sub">2024 – present</span></div>
+      <div class="list-item"><span>Session Chair, SASEC 2026 (Track 6B)</span><span class="li-sub">Jun 25, 2026</span></div>
+      <div class="list-item"><span>Organising Committee Volunteer, 2nd ISRET</span><span class="li-sub">Aug 2024</span></div>
+      <div class="list-item"><span>Reviewer — J. of Energy Storage, Frontiers</span><span class="li-sub">Ongoing</span></div>
+      <div class="list-item"><span>Reviewer — SASEC 2026, SolarPACES 2026</span><span class="li-sub">Ongoing</span></div>
+    </div>
+    <div class="list-card">
+      <div class="list-card-hdr">Outreach &amp; Mentoring</div>
+      <div class="list-item"><span>Mentoring Credence CleanTech Solutions</span><span class="li-sub">Startup</span></div>
+      <div class="list-item"><span>Co-supervised a master's student, IIT Madras</span><span class="li-sub">Published</span></div>
+      <div class="list-item"><span>Lab Demonstrator, IIT Madras</span><span class="li-sub">2022 – 2024</span></div>
+      <div class="list-item"><span>The Research Lab — YouTube channel</span><span class="li-sub">60K+ views</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="section" id="blog">
+  <div class="section-eyebrow">Blog</div>
+  <h2 class="section-heading">Notes &amp; Reflections</h2>
+  <div id="blogList"></div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-eyebrow">Contact</div>
+  <h2 class="section-heading">Open to Research Collaborations</h2>
+  <div class="prose"><p>Interested in solar energy, thermal storage, CFD, AI for engineering, or sustainable energy systems? I would love to connect.</p></div>
+
+  <div class="contact-grid" style="margin-top:20px;">
+    <a href="mailto:rajan.abhinav9@gmail.com" class="contact-card">
+      <div class="cc-label">Personal Email</div><div class="cc-value">rajan.abhinav9@gmail.com</div><div class="cc-sub">Preferred for collaborations</div>
+    </a>
+    <a href="mailto:abhinav.rajan@up.ac.za" class="contact-card">
+      <div class="cc-label">Work Email</div><div class="cc-value">abhinav.rajan@up.ac.za</div><div class="cc-sub">University of Pretoria</div>
+    </a>
+    <a href="tel:+27715337860" class="contact-card">
+      <div class="cc-label">Mobile</div><div class="cc-value">+27 71 533 7860</div><div class="cc-sub">South Africa</div>
+    </a>
+    <div class="contact-card">
+      <div class="cc-label">Office</div><div class="cc-value">Engineering 3, Room 6-78</div><div class="cc-sub">Dept. of Mechanical &amp; Aeronautical Engineering, University of Pretoria</div>
+    </div>
+  </div>
+
+  <iframe class="map-frame" src="https://maps.google.com/maps?q=University+of+Pretoria,+Hatfield&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  <div class="profile-grid">
+    <a href="https://scholar.google.com/citations?hl=en&user=VtrNxWYAAAAJ" class="profile-card" target="_blank" rel="noopener noreferrer"><span class="pl-name">Google Scholar</span><span class="pl-handle">151 · h6 · i10:6</span></a>
+    <a href="https://orcid.org/0000-0003-3404-2228" class="profile-card" target="_blank" rel="noopener noreferrer"><span class="pl-name">ORCID</span><span class="pl-handle">0000-0003-3404-2228</span></a>
+    <a href="https://www.researchgate.net/profile/Abhinav-Rajan-2" class="profile-card" target="_blank" rel="noopener noreferrer"><span class="pl-name">ResearchGate</span><span class="pl-handle">Abhinav-Rajan-2</span></a>
+    <a href="https://www.scopus.com/authid/detail.uri?authorId=57640534900" class="profile-card" target="_blank" rel="noopener noreferrer"><span class="pl-name">Scopus</span><span class="pl-handle">57640534900</span></a>
+    <a href="https://www.webofscience.com/wos/author/record/JUU-9810-2023" class="profile-card" target="_blank" rel="noopener noreferrer"><span class="pl-name">Web of Science</span><span class="pl-handle">JUU-9810-2023</span></a>
+    <a href="https://www.youtube.com/@theresearchlab" class="profile-card" target="_blank" rel="noopener noreferrer"><span class="pl-name">The Research Lab</span><span class="pl-handle">60K+ views</span></a>
+  </div>
+</section>
+
+<footer class="footer">
+  Maintained by <strong>Dr. Abhinav Rajan</strong> · University of Pretoria · Last updated: <strong>September 2026</strong> · © 2026 Abhinav Rajan · <a href="mailto:rajan.abhinav9@gmail.com">Contact</a>
+</footer>
+
+</div><!-- /.page -->
+
+<!-- BIBTEX MODAL — outside .page so the overlay covers the whole frame, not just the scroll area -->
+<div class="bibtex-modal" id="bibtexModal" onclick="if(event.target===this)closeBib()">
+  <div class="bibtex-box">
+    <h3>BibTeX Citation</h3>
+    <pre id="bibtexContent"></pre>
+    <div class="bibtex-actions">
+      <button class="btn-close-bib" onclick="closeBib()">Close</button>
+      <button class="btn-copy-bib" onclick="copyBib()">Copy BibTeX</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── PUBLICATIONS: FILTER & SORT ── */
+let pFilters={type:'all'};
+function setPFilter(key,val,btn){
+  pFilters[key]=val;
+  document.querySelectorAll(`[data-filter="${key}"]`).forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  applyPubFilters();
+}
+function toggleNavSearch(){
+  const inp=document.getElementById('pubSearch');
+  inp.classList.toggle('open');
+  if(inp.classList.contains('open')){
+    inp.focus();
+  }else{
+    inp.value='';
+    handleSiteSearch();
+  }
+}
+
+/* ── SITE-WIDE SEARCH (highlights matches anywhere on the page) ── */
+let searchWasActive=false;
+function clearHighlights(root){
+  root.querySelectorAll('mark.search-hit').forEach(m=>{
+    const parent=m.parentNode;
+    if(!parent) return;
+    parent.replaceChild(document.createTextNode(m.textContent),m);
+    parent.normalize();
+  });
+}
+function highlightSiteSearch(query){
+  const roots=document.querySelectorAll('.hero, .stats, .section, .footer');
+  roots.forEach(r=>clearHighlights(r));
+  if(!query) return {count:0,first:null};
+  const q=query.toLowerCase();
+  let count=0,first=null;
+  roots.forEach(root=>{
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{
+      acceptNode(node){
+        if(!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        const p=node.parentElement;
+        if(!p||p.closest('script,style')) return NodeFilter.FILTER_REJECT;
+        if(p.closest('.pub-row.hidden')) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes=[];
+    let n;
+    while(n=walker.nextNode()) nodes.push(n);
+    nodes.forEach(node=>{
+      const text=node.nodeValue;
+      const lower=text.toLowerCase();
+      let idx=lower.indexOf(q);
+      if(idx===-1) return;
+      const frag=document.createDocumentFragment();
+      let cursor=0;
+      while(idx!==-1){
+        frag.appendChild(document.createTextNode(text.slice(cursor,idx)));
+        const mark=document.createElement('mark');
+        mark.className='search-hit';
+        mark.textContent=text.slice(idx,idx+q.length);
+        frag.appendChild(mark);
+        count++;
+        if(!first) first=mark;
+        cursor=idx+q.length;
+        idx=lower.indexOf(q,cursor);
+      }
+      frag.appendChild(document.createTextNode(text.slice(cursor)));
+      node.parentNode.replaceChild(frag,node);
+    });
+  });
+  return {count,first};
+}
+function handleSiteSearch(){
+  applyPubFilters();
+  const query=(document.getElementById('pubSearch').value||'').trim();
+  const {count,first}=highlightSiteSearch(query);
+  const hint=document.getElementById('searchHint');
+  if(query){
+    hint.textContent=count?`${count} match${count===1?'':'es'}`:'No matches';
+    hint.classList.remove('hidden');
+    if(first&&!searchWasActive) first.scrollIntoView({behavior:'smooth',block:'center'});
+  }else{
+    hint.classList.add('hidden');
+  }
+  searchWasActive=!!query;
+}
+function applyPubFilters(){
+  const cards=document.querySelectorAll('.pub-row');
+  const query=(document.getElementById('pubSearch').value||'').trim().toLowerCase();
+  let shown=0;
+  cards.forEach(c=>{
+    const typeOk=pFilters.type==='all'||c.dataset.type===pFilters.type;
+    const text=c.querySelector('.pub-top').textContent.toLowerCase()+' '+c.querySelector('.pub-bottom').textContent.toLowerCase();
+    const queryOk=!query||text.includes(query);
+    const vis=typeOk&&queryOk;
+    c.classList.toggle('hidden',!vis);
+    if(vis) shown++;
+  });
+  document.getElementById('pubResCount').textContent=shown;
+  document.getElementById('pubNoResults').classList.toggle('hidden',shown>0);
+  document.querySelectorAll('.pub-group-label').forEach(lbl=>{
+    let next=lbl.nextElementSibling,any=false;
+    while(next&&!next.classList.contains('pub-group-label')){
+      if(next.classList.contains('pub-row')&&!next.classList.contains('hidden')) any=true;
+      next=next.nextElementSibling;
+    }
+    lbl.classList.toggle('hidden',!any);
+  });
+}
+function applyPubSort(){
+  const val=document.getElementById('pubSortSel').value;
+  const list=document.getElementById('pubList');
+  const cards=[...list.querySelectorAll('.pub-row')];
+  const labels=[...list.querySelectorAll('.pub-group-label')];
+  cards.sort((a,b)=>{
+    const ya=parseInt(a.dataset.year)||0,yb=parseInt(b.dataset.year)||0;
+    return val==='newest'?yb-ya:ya-yb;
+  });
+  labels.forEach(l=>l.remove());
+  cards.forEach(c=>list.appendChild(c));
+}
+function toggleAbs(btn,id){
+  const ab=document.getElementById(id);
+  if(!ab) return;
+  ab.classList.toggle('open');
+  btn.textContent=ab.classList.contains('open')?'Hide':'Abstract';
+}
+
+/* ── BIBTEX ── */
+const bibtexData={
+  'J1':`@article{rajan2025energy,
+  author  = {Rajan, Abhinav and Reddy, K. S.},
+  title   = {Integrated optical-thermal model to predict the performance of a solar parabolic dish collector for process heating applications},
+  journal = {Energy}, volume = {321}, pages = {135176}, year = {2025},
+  doi     = {10.1016/j.energy.2025.135176}
+}`,
+  'J2':`@article{kumar2025renene,
+  author  = {Kumar, K. H. and Rajan, Abhinav and Karmakar, M. and Mondal, B. and Mallisetty, P. K. and Reddy, K. S.},
+  title   = {Comparative thermal assessment of Al2O3/EG and ZnO/EG as heat transfer fluids in solar parabolic dish receiver},
+  journal = {Renewable Energy}, volume = {249}, pages = {123216}, year = {2025},
+  doi     = {10.1016/j.renene.2025.123216}
+}`,
+  'J3':`@article{rajan2025mmmed,
+  author  = {Rajan, Abhijit and Prasad, B. N. and Kumar, R. and Dhuria, G. K. and Kumar, A. and Rajan, Abhinav},
+  title   = {An experimental approach to heat transfer enhancement in heat exchanger tubes using hyperbolic-cut twisted tape inserts: IoT and biomedical insight},
+  journal = {Multiscale and Multidisciplinary Modeling, Experiments and Design}, volume = {8}, number = {9}, pages = {384}, year = {2025},
+  doi     = {10.1007/s41939-025-00951-8}
+}`,
+  'J4':`@article{rajan2024jest,
+  author  = {Rajan, Abhinav and Gan, Yixiang and Reddy, K. S.},
+  title   = {Performance assessment of phase change material-based thermal energy storage},
+  journal = {Journal of Energy Storage}, volume = {87}, pages = {111424}, year = {2024},
+  doi     = {10.1016/j.est.2024.111424}
+}`,
+  'J5':`@article{rajan2024ecm,
+  author  = {Rajan, Abhinav and Reddy, K. S.},
+  title   = {Integrated optical-thermal model and deep learning technique to estimate the performance of a conical cavity receiver coupled solar parabolic dish collector},
+  journal = {Energy Conversion and Management}, volume = {301}, pages = {118052}, year = {2024},
+  doi     = {10.1016/j.enconman.2023.118052}
+}`,
+  'J6':`@article{mandal2024tsep,
+  author  = {Mandal, P. and Rajan, Abhinav and Reddy, K. S.},
+  title   = {Optical and thermal investigation of hyperbolic cavity receiver with secondary reflector for solar parabolic dish collector},
+  journal = {Thermal Science and Engineering Progress}, volume = {47}, pages = {102350}, year = {2024},
+  doi     = {10.1016/j.tsep.2023.102350}
+}`,
+  'J7':`@article{rajan2023renene,
+  author  = {Rajan, Abhinav and Reddy, K. S.},
+  title   = {Integrated optical and thermal model to investigate the performance of a solar parabolic dish collector coupled with a cavity receiver},
+  journal = {Renewable Energy}, volume = {219}, pages = {119376}, year = {2023},
+  doi     = {10.1016/j.renene.2023.119376}
+}`,
+  'J8':`@article{rajan2023nht,
+  author  = {Rajan, Abhinav and Reddy, K. S.},
+  title   = {Convective heat loss prediction from conical cavity receiver of solar parabolic dish collector using numerical method and artificial neural network},
+  journal = {Numerical Heat Transfer, Part A: Applications}, volume = {83}, number = {6}, pages = {626--649}, year = {2023},
+  doi     = {10.1080/10407782.2022.2102338}
+}`,
+  'J9':`@article{rajan2022esa,
+  author  = {Rajan, Abhinav and Reddy, K. S.},
+  title   = {Optical modeling of corrugation cavity receiver for large-aperture solar parabolic dish collector},
+  journal = {Energy Sources, Part A: Recovery, Utilization, and Environmental Effects}, volume = {44}, number = {2}, pages = {3330--3348}, year = {2022},
+  doi     = {10.1080/15567036.2022.2063458}
+}`,
+  'C1':`@inproceedings{rajan2026solarpaces,
+  author    = {Rajan, Abhinav and le Roux, W. G. and Humphries, E. D. and Craig, K. J. and Cox, R. B. and van Vuuren, D. J.},
+  title     = {Modelling the effect of tracking error on multifaceted dish system performance for high-temperature applications},
+  booktitle = {32nd SolarPACES Conference}, address = {Bad Neuenahr, Germany}, year = {2026}, note = {Accepted}
+}`,
+  'C2':`@inproceedings{rajan2026sasec,
+  author    = {Rajan, Abhinav and Cox, R. B. and le Roux, W. G. and van Vuuren, D. J. and Craig, K. J.},
+  title     = {Analysing the impact of tracking error on an air-heating open-cavity tubular receiver in a solar parabolic dish system},
+  booktitle = {Southern African Sustainable Energy Conference (SASEC 2026)}, address = {Kruger National Park, South Africa}, year = {2026}
+}`,
+  'C3':`@inproceedings{rajan2024isret,
+  author    = {Rajan, Abhinav and Reddy, K. S.},
+  title     = {Deep learning model to predict the performance of solar parabolic dish collector with conical cavity receiver},
+  booktitle = {1st International Symposium on Renewable Energy Technologies}, address = {IIT Delhi, India}, year = {2024}
+}`,
+  'C4':`@inproceedings{rajan2024set,
+  author    = {Rajan, Abhinav and Reddy, K. S.},
+  title     = {Optical and thermal analysis of solar parabolic dish collector with hetero-conical cavity receiver for medium temperature applications},
+  booktitle = {21st International Conference on Sustainable Energy Technologies (SET 2024)}, address = {Shanghai, China}, year = {2024}
+}`,
+  'C5':`@inproceedings{mondal2023isesswc,
+  author    = {Mondal, P. and Rajan, Abhinav and Reddy, K. S.},
+  title     = {Thermo-optical modeling for hyperbolic cavity receiver of 40 m\\textsuperscript{2} parabolic dish collector},
+  booktitle = {ISES Solar World Congress 2023}, address = {New Delhi, India}, year = {2023}
+}`,
+  'C6':`@inproceedings{rajan2023ihtc,
+  author    = {Rajan, Abhinav and Reddy, K. S.},
+  title     = {Coupled optical-thermal modeling of solar parabolic dish collector for novel cavity receiver},
+  booktitle = {17th International Heat Transfer Conference (IHTC-17)}, address = {Cape Town, South Africa}, year = {2023}
+}`,
+  'C7':`@inproceedings{rajan2023ecres,
+  author    = {Rajan, Abhinav and Reddy, K. S.},
+  title     = {Comparative study of cylindrical and triple concentric tube models for PCM-based thermal energy storage},
+  booktitle = {11th European Conference on Renewable Energy Systems (ECRES 2023)}, address = {Riga, Latvia}, year = {2023}
+}`,
+  'C8':`@inproceedings{rajan2021isec,
+  author    = {Rajan, Abhinav and Reddy, K. S.},
+  title     = {Estimation of convective heat losses from conical cavity receiver of solar parabolic dish collector under wind conditions and receiver orientations},
+  booktitle = {19th International Stirling Engine Conference (ISEC 2021)}, address = {Online}, year = {2021}
+}`,
+  'P1':`@inproceedings{rajan2025eop,
+  author    = {Rajan, Abhinav and Sharma, A. K. and Mishra, M. P. and Ashwani, A. and Raj, R.},
+  title     = {Enabling reliable optronic operations in extreme stratospheric conditions},
+  booktitle = {International Conference on Electro-Optic \\& Photonics (EOP-2025)}, address = {IRDE, Dehradun, India}, year = {2025}, note = {Poster presentation}
+}`,
+  'P2':`@inproceedings{rajan2021seec,
+  author    = {Rajan, Abhinav and Reddy, K. S.},
+  title     = {Optical modeling of solar parabolic dish collector coupled with conical cavity receiver},
+  booktitle = {6th International Conference on Sustainable Energy and Environmental Challenges}, address = {Lucknow, India}, year = {2021}, note = {Poster presentation}
+}`,
+};
+function openBib(id){
+  document.getElementById('bibtexContent').textContent=bibtexData[id]||'';
+  document.getElementById('bibtexModal').classList.add('open');
+}
+function closeBib(){document.getElementById('bibtexModal').classList.remove('open');}
+function copyBib(){
+  navigator.clipboard.writeText(document.getElementById('bibtexContent').textContent).then(()=>{
+    const btn=document.querySelector('.btn-copy-bib');
+    btn.textContent='Copied!';
+    setTimeout(()=>btn.textContent='Copy BibTeX',2000);
+  });
+}
+
+/* ── BLOG ── */
+const catColors={Research:'var(--accent)','Academic Life':'var(--accent)',Conference:'var(--gold)',Tutorial:'var(--accent)',Career:'var(--gold)',Reflections:'var(--muted)'};
+let blogs=[
+  {id:1,title:'My Journey from IIT Madras to University of Pretoria',cat:'Career',date:'2026-03-10',
+   tags:['IIT Madras','Postdoc','South Africa'],
+   excerpt:'Transitioning from a PhD at IIT Madras to a postdoctoral fellowship at the University of Pretoria has been one of the most enriching experiences of my academic career…',
+   full:'Transitioning from a PhD at IIT Madras to a postdoctoral fellowship at the University of Pretoria has been one of the most enriching experiences of my academic career. After five years of working on solar dish collectors and thermal energy storage systems under Prof K.S. Reddy, I embarked on an international research journey. The move to South Africa brought new technical challenges — from working on multifaceted dish systems to integrating AI with CFD frameworks. Prof Willem le Roux has been an excellent mentor, and collaborating with a diverse international team has broadened my research perspective significantly. For any early-career researcher considering a postdoc abroad, I would say: embrace the uncertainty. The growth is immense.'},
+  {id:2,title:'Understanding Phase Change Materials for Thermal Energy Storage',cat:'Tutorial',date:'2026-01-20',
+   tags:['PCM','Thermal Storage','ANSYS Fluent'],
+   excerpt:'Phase change materials (PCMs) offer a fascinating way to store thermal energy by exploiting the latent heat during solid-liquid transitions…',
+   full:'Phase change materials (PCMs) offer a fascinating way to store thermal energy by exploiting the latent heat during solid-liquid transitions. In this post, I explain the key modelling approaches used in my research and published in the Journal of Energy Storage (2024). The enthalpy-porosity method in ANSYS Fluent is the most widely used approach — it treats the mushy zone between solid and liquid as a porous medium with varying porosity. Key parameters include the Stefan number, Fourier number, and effective thermal conductivity. For anyone beginning PCM simulations, I recommend starting with a simple cylindrical geometry and validating against the Neumann analytical solution before moving to complex geometries.'},
+  {id:3,title:'Presenting at SolarPACES 2026 in Bad Neuenahr, Germany',cat:'Conference',date:'2026-02-05',
+   tags:['SolarPACES','Germany','Solar Dish'],
+   excerpt:'I am excited to share that our paper on tracking error effects in multifaceted dish systems has been submitted to the 32nd SolarPACES Conference…',
+   full:'I am excited to share that our paper on tracking error effects in multifaceted dish systems has been submitted to the 32nd SolarPACES Conference in Bad Neuenahr, Germany (September 2026). This work, co-authored with Prof le Roux and our research group at the University of Pretoria, investigates how pointing inaccuracies in dish tracking affect the flux distribution on the receiver and ultimately the thermal efficiency of the system. SolarPACES is one of the premier conferences in concentrated solar power research, and presenting there will be a milestone in my postdoctoral journey.'},
+  {id:4,title:'How I Started The Research Lab YouTube Channel',cat:'Academic Life',date:'2025-11-15',
+   tags:['YouTube','ANSYS','Tutorial'],
+   excerpt:'With over 60,000 views, "The Research Lab" channel on YouTube began as a simple way to help engineering students with ANSYS and CFD simulations…',
+   full:'With over 60,000 views, "The Research Lab" channel on YouTube began as a simple way to help engineering students with ANSYS and CFD simulations. During my PhD, I noticed that many students struggled with the initial setup and meshing steps in ANSYS Fluent. Instead of explaining it repeatedly one-on-one, I started recording short tutorials. The response was overwhelming. Students from across India, and later internationally, began following the channel. The most popular videos cover solar receiver modelling, PCM simulations, and meshing strategies in ANSYS. If you are a researcher or student struggling with CFD, check out the channel at youtube.com/@theresearchlab.'},
+  {id:5,title:'Reflections on the International Immersion Experience (IIE) at University of Sydney',cat:'Reflections',date:'2025-09-02',
+   tags:['University of Sydney','Australia','PCM'],
+   excerpt:'In mid-2023, I had the privilege of spending two months at the University of Sydney as a Visiting Researcher, funded by the IIE Award from IIT Madras…',
+   full:'In mid-2023, I had the privilege of spending two months at the University of Sydney as a Visiting Researcher, funded by the International Immersion Experience (IIE) Award from the Office of Global Engagement, IIT Madras. Working with Dr Yixiang Gan\'s group on energy storage systems was a transformative experience. The academic culture at Sydney was different from IIT — more collaborative and interdisciplinary. The results from this collaboration were published in the Journal of Energy Storage (IF ~9.4). Looking back, applying for the IIE award was one of the best decisions of my PhD. I encourage all PhD students to actively seek international collaboration opportunities.'}
+];
+function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+function renderBlogs(){
+  const list=document.getElementById('blogList');
+  const sorted=[...blogs].sort((a,b)=>new Date(b.date)-new Date(a.date));
+  if(!sorted.length){list.innerHTML='<div class="empty-state">No posts yet.</div>';return;}
+  list.innerHTML=sorted.map(b=>`
+    <div class="blog-card" onclick="toggleFull(${b.id})">
+      <div class="blog-meta">
+        <span class="blog-cat" style="color:${catColors[b.cat]||'var(--muted)'}">${esc(b.cat)}</span>
+        <span class="blog-date">${new Date(b.date).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}</span>
+      </div>
+      <div class="blog-title">${esc(b.title)}</div>
+      <div class="blog-excerpt">${esc(b.excerpt)}</div>
+      <div class="blog-footer">
+        <div>${b.tags.map(t=>`<span class="blog-tag">${esc(t)}</span>`).join('')}</div>
+        <span id="rmBtn-${b.id}">Read more ▾</span>
+      </div>
+      <div class="blog-full" id="full-${b.id}">${esc(b.full)}</div>
+    </div>
+  `).join('');
+}
+function toggleFull(id){
+  const el=document.getElementById(`full-${id}`);
+  const btn=document.getElementById(`rmBtn-${id}`);
+  el.classList.toggle('open');
+  btn.textContent=el.classList.contains('open')?'Read less ▴':'Read more ▾';
+}
+renderBlogs();
+
+/* ── NAV: JS-DRIVEN ANCHOR SCROLL ──
+   No href/hash is used on nav links, since Google Sites' embed wrapper intercepts
+   hash-link clicks itself and reloads the embed, wiping the nav until refresh.
+   Instead each link carries data-target and JS scrolls the section into view directly. */
+(function(){
+  const anchors=[...document.querySelectorAll('.nav-name, .nav-links a')];
+  anchors.forEach(a=>{
+    a.addEventListener('click',function(e){
+      const id=a.dataset.target;
+      const target=id?document.getElementById(id):null;
+      if(!target) return;
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+    a.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); a.click(); }
+    });
+  });
+})();
+
+/* ── NAV SCROLL-SPY ── */
+(function(){
+  const navLinks=[...document.querySelectorAll('.nav-links a')];
+  const targets=navLinks.map(a=>document.getElementById(a.dataset.target)).filter(Boolean);
+  if(!targets.length) return;
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      const link=navLinks.find(a=>a.dataset.target===entry.target.id);
+      if(!link) return;
+      if(entry.isIntersecting) navLinks.forEach(a=>a.classList.toggle('active',a===link));
+    });
+  },{root:document.getElementById('pageScroll'),rootMargin:'-80px 0px -70% 0px',threshold:0});
+  targets.forEach(t=>obs.observe(t));
+})();
+</script>
+</body>
+</html>
