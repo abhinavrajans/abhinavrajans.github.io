@@ -60,7 +60,7 @@ img{max-width:100%;}
 mark.search-hit{background:var(--gold-soft);color:var(--ink);border-radius:2px;padding:0 1px;}
 
 /* section anchors must clear the sticky nav, otherwise the heading lands hidden underneath it */
-#about,#experience,#publications,#education,#blog,#contact{scroll-margin-top:58px;}
+#about,#experience,#publications,#education,#contact{scroll-margin-top:58px;}
 
 @media(max-width:700px){
   .nav-inner{display:flex;flex-wrap:wrap;row-gap:6px;padding:8px 20px;}
@@ -202,20 +202,7 @@ mark.search-hit{background:var(--gold-soft);color:var(--ink);border-radius:2px;p
 .ta-table td{padding:8px 12px;border-bottom:1px solid var(--paper-alt);}
 .ta-code{font-weight:700;color:var(--accent);white-space:nowrap;}
 
-/* ── BLOG ── */
 .write-note{font-size:11px;color:var(--muted);margin-bottom:18px;}
-.blog-card{border:1px solid var(--line);border-radius:6px;padding:18px;margin-bottom:10px;background:#fff;cursor:pointer;transition:border-color .15s;}
-.blog-card:hover{border-color:var(--accent-line);}
-.blog-meta{display:flex;align-items:center;gap:8px;margin-bottom:7px;flex-wrap:wrap;font-size:11px;}
-.blog-cat{font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.3px;}
-.blog-date{color:var(--muted);}
-.blog-title{font-family:'Lora',serif;font-size:16px;font-weight:600;color:var(--ink);margin-bottom:6px;}
-.blog-excerpt{font-size:12.5px;color:var(--ink-soft);line-height:1.65;margin-bottom:10px;}
-.blog-footer{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);}
-.blog-tag{background:var(--paper-alt);border:1px solid var(--line);border-radius:5px;padding:2px 8px;margin-right:4px;}
-.blog-full{display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-soft);line-height:1.75;}
-.blog-full.open{display:block;}
-.empty-state{text-align:center;padding:36px;color:var(--muted);font-size:13px;}
 
 /* ── CONTACT ── */
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-bottom:24px;}
@@ -254,7 +241,6 @@ mark.search-hit{background:var(--gold-soft);color:var(--ink);border-radius:2px;p
       <a data-target="experience" tabindex="0" role="link">Experience</a>
       <a data-target="publications" tabindex="0" role="link">Publications</a>
       <a data-target="education" tabindex="0" role="link">Education</a>
-      <a data-target="blog" tabindex="0" role="link">Blog</a>
       <a data-target="contact" tabindex="0" role="link">Contact</a>
     </div>
     <div class="nav-right">
@@ -899,13 +885,6 @@ mark.search-hit{background:var(--gold-soft);color:var(--ink);border-radius:2px;p
   </div>
 </section>
 
-<!-- BLOG -->
-<section class="section" id="blog">
-  <div class="section-eyebrow">Blog</div>
-  <h2 class="section-heading">Notes &amp; Reflections</h2>
-  <div id="blogList"></div>
-</section>
-
 <!-- CONTACT -->
 <section class="section" id="contact">
   <div class="section-eyebrow">Contact</div>
@@ -1205,59 +1184,6 @@ function copyBib(){
     setTimeout(()=>btn.textContent='Copy BibTeX',2000);
   });
 }
-
-/* ── BLOG ── */
-const catColors={Research:'var(--accent)','Academic Life':'var(--accent)',Conference:'var(--gold)',Tutorial:'var(--accent)',Career:'var(--gold)',Reflections:'var(--muted)'};
-let blogs=[
-  {id:1,title:'My Journey from IIT Madras to University of Pretoria',cat:'Career',date:'2026-03-10',
-   tags:['IIT Madras','Postdoc','South Africa'],
-   excerpt:'Transitioning from a PhD at IIT Madras to a postdoctoral fellowship at the University of Pretoria has been one of the most enriching experiences of my academic career…',
-   full:'Transitioning from a PhD at IIT Madras to a postdoctoral fellowship at the University of Pretoria has been one of the most enriching experiences of my academic career. After five years of working on solar dish collectors and thermal energy storage systems under Prof K.S. Reddy, I embarked on an international research journey. The move to South Africa brought new technical challenges — from working on multifaceted dish systems to integrating AI with CFD frameworks. Prof Willem le Roux has been an excellent mentor, and collaborating with a diverse international team has broadened my research perspective significantly. For any early-career researcher considering a postdoc abroad, I would say: embrace the uncertainty. The growth is immense.'},
-  {id:2,title:'Understanding Phase Change Materials for Thermal Energy Storage',cat:'Tutorial',date:'2026-01-20',
-   tags:['PCM','Thermal Storage','ANSYS Fluent'],
-   excerpt:'Phase change materials (PCMs) offer a fascinating way to store thermal energy by exploiting the latent heat during solid-liquid transitions…',
-   full:'Phase change materials (PCMs) offer a fascinating way to store thermal energy by exploiting the latent heat during solid-liquid transitions. In this post, I explain the key modelling approaches used in my research and published in the Journal of Energy Storage (2024). The enthalpy-porosity method in ANSYS Fluent is the most widely used approach — it treats the mushy zone between solid and liquid as a porous medium with varying porosity. Key parameters include the Stefan number, Fourier number, and effective thermal conductivity. For anyone beginning PCM simulations, I recommend starting with a simple cylindrical geometry and validating against the Neumann analytical solution before moving to complex geometries.'},
-  {id:3,title:'Presenting at SolarPACES 2026 in Bad Neuenahr, Germany',cat:'Conference',date:'2026-02-05',
-   tags:['SolarPACES','Germany','Solar Dish'],
-   excerpt:'I am excited to share that our paper on tracking error effects in multifaceted dish systems has been submitted to the 32nd SolarPACES Conference…',
-   full:'I am excited to share that our paper on tracking error effects in multifaceted dish systems has been submitted to the 32nd SolarPACES Conference in Bad Neuenahr, Germany (September 2026). This work, co-authored with Prof le Roux and our research group at the University of Pretoria, investigates how pointing inaccuracies in dish tracking affect the flux distribution on the receiver and ultimately the thermal efficiency of the system. SolarPACES is one of the premier conferences in concentrated solar power research, and presenting there will be a milestone in my postdoctoral journey.'},
-  {id:4,title:'How I Started The Research Lab YouTube Channel',cat:'Academic Life',date:'2025-11-15',
-   tags:['YouTube','ANSYS','Tutorial'],
-   excerpt:'With over 60,000 views, "The Research Lab" channel on YouTube began as a simple way to help engineering students with ANSYS and CFD simulations…',
-   full:'With over 60,000 views, "The Research Lab" channel on YouTube began as a simple way to help engineering students with ANSYS and CFD simulations. During my PhD, I noticed that many students struggled with the initial setup and meshing steps in ANSYS Fluent. Instead of explaining it repeatedly one-on-one, I started recording short tutorials. The response was overwhelming. Students from across India, and later internationally, began following the channel. The most popular videos cover solar receiver modelling, PCM simulations, and meshing strategies in ANSYS. If you are a researcher or student struggling with CFD, check out the channel at youtube.com/@theresearchlab.'},
-  {id:5,title:'Reflections on the International Immersion Experience (IIE) at University of Sydney',cat:'Reflections',date:'2025-09-02',
-   tags:['University of Sydney','Australia','PCM'],
-   excerpt:'In mid-2023, I had the privilege of spending two months at the University of Sydney as a Visiting Researcher, funded by the IIE Award from IIT Madras…',
-   full:'In mid-2023, I had the privilege of spending two months at the University of Sydney as a Visiting Researcher, funded by the International Immersion Experience (IIE) Award from the Office of Global Engagement, IIT Madras. Working with Dr Yixiang Gan\'s group on energy storage systems was a transformative experience. The academic culture at Sydney was different from IIT — more collaborative and interdisciplinary. The results from this collaboration were published in the Journal of Energy Storage (IF ~9.4). Looking back, applying for the IIE award was one of the best decisions of my PhD. I encourage all PhD students to actively seek international collaboration opportunities.'}
-];
-function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
-function renderBlogs(){
-  const list=document.getElementById('blogList');
-  const sorted=[...blogs].sort((a,b)=>new Date(b.date)-new Date(a.date));
-  if(!sorted.length){list.innerHTML='<div class="empty-state">No posts yet.</div>';return;}
-  list.innerHTML=sorted.map(b=>`
-    <div class="blog-card" onclick="toggleFull(${b.id})">
-      <div class="blog-meta">
-        <span class="blog-cat" style="color:${catColors[b.cat]||'var(--muted)'}">${esc(b.cat)}</span>
-        <span class="blog-date">${new Date(b.date).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}</span>
-      </div>
-      <div class="blog-title">${esc(b.title)}</div>
-      <div class="blog-excerpt">${esc(b.excerpt)}</div>
-      <div class="blog-footer">
-        <div>${b.tags.map(t=>`<span class="blog-tag">${esc(t)}</span>`).join('')}</div>
-        <span id="rmBtn-${b.id}">Read more ▾</span>
-      </div>
-      <div class="blog-full" id="full-${b.id}">${esc(b.full)}</div>
-    </div>
-  `).join('');
-}
-function toggleFull(id){
-  const el=document.getElementById(`full-${id}`);
-  const btn=document.getElementById(`rmBtn-${id}`);
-  el.classList.toggle('open');
-  btn.textContent=el.classList.contains('open')?'Read less ▴':'Read more ▾';
-}
-renderBlogs();
 
 /* ── NAV: JS-DRIVEN ANCHOR SCROLL ──
    No href/hash is used on nav links, since Google Sites' embed wrapper intercepts
